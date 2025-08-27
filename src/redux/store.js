@@ -7,8 +7,11 @@ export const getFilteredCards = ({cards, searchString}, columnId) => cards.filte
 
 export const getAllColumns = (state) => state.columns;
 
+//action creators
+export const addColumn = payload => ({type: 'ADD_COLUMN', payload});
+
 const reducer = (state, action) => {
-  if(action.type === 'ADD_COLUMN') return { ...state, columns: [...state.columns, action.newColumn]}
+  if(action.type === 'ADD_COLUMN') return { ...state, columns: [...state.columns, action.payload]}
   if(action.type === 'UPDATE_SEARCHSTRING') return { ...state, searchString: action.payload }
   return state;
 };

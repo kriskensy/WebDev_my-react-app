@@ -7,7 +7,6 @@ import { getAllColumns } from '../../redux/store';
 
 const List = () => {
 
-  // const columns = useSelector(state => state.columns);
   const columns = useSelector(getAllColumns);
 
   return (

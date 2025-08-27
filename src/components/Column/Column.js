@@ -9,7 +9,7 @@ const Column = props => {
   const searchString = useSelector(state => state.searchString);
 
   const cards = useSelector(state => getFilteredCards(state, props.id));
-
+console.log('column render');
   return (
     <article className={styles.column}>
       <h2 className={styles.title}><span className={styles.icon + ' fa fa-' + props.icon}></span>{props.title}</h2>
