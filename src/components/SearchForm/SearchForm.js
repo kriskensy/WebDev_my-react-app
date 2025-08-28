@@ -12,7 +12,6 @@ const SearchForm = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch({ type: 'UPDATE_SEARCHSTRING', payload: searchString });
     dispatch(updateSearchString( searchString ));
     setSearchString('');
   }

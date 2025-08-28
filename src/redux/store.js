@@ -14,17 +14,17 @@ export const addCard = payload => ({type: 'ADD_CARD', payload});
 export const updateSearchString = payload => ({type: 'UPDATE_SEARCHSTRING', payload});
 
 const reducer = (state, action) => {
-  if(action.type === 'ADD_COLUMN') 
-    return { ...state, columns: [...state.columns, action.payload]}
-
-  if(action.type === 'ADD_CARD') {
-    const newCard = {...action.payload, id: cardMaxId(state) + 1};
-    return { ...state, cards: [...state.cards, newCard]}}
-
-  if(action.type === 'UPDATE_SEARCHSTRING') 
-    return { ...state, searchString: action.payload }
-  
-  return state;
+  switch (action.type) {
+    case 'ADD_COLUMN':
+      return { ...state, columns: [...state.columns, action.payload]}
+    case 'ADD_CARD':
+      const newCard = {...action.payload, id: cardMaxId(state) + 1};
+      return { ...state, cards: [...state.cards, newCard]}
+    case 'UPDATE_SEARCHSTRING':
+      return { ...state, searchString: action.payload }
+    default:
+      return state;
+  }
 };
 
 const store = createStore(
