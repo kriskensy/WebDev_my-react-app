@@ -11,6 +11,7 @@ export const getAllCards = (state) => state.cards;
 //action creators
 export const addColumn = payload => ({type: 'ADD_COLUMN', payload});
 export const addCard = payload => ({type: 'ADD_CARD', payload});
+export const updateSearchString = payload => ({type: 'UPDATE_SEARCHSTRING', payload});
 
 const reducer = (state, action) => {
   if(action.type === 'ADD_COLUMN') 
@@ -19,7 +20,7 @@ const reducer = (state, action) => {
   if(action.type === 'ADD_CARD') {
     const newCard = {...action.payload, id: cardMaxId(state) + 1};
     return { ...state, cards: [...state.cards, newCard]}}
-    
+
   if(action.type === 'UPDATE_SEARCHSTRING') 
     return { ...state, searchString: action.payload }
   

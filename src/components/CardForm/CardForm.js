@@ -7,22 +7,21 @@ import { useDispatch } from 'react-redux';
 
 const CardForm = props => {
 
-    const dispatch = useDispatch();
-    const [title, setTitle] = useState('');
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        // props.action({ title: title }, props.columnId);
-        dispatch(addCard({ columnId: props.columnId, title }));
-        setTitle('');
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addCard({ columnId: props.columnId, title }));
+    setTitle('');
+  }
 
-    return (
-        <form className={styles.cardForm} onSubmit={handleSubmit}>
-            <TextInput value={title} onChange={e => setTitle(e.target.value)}/>
-            <Button>Add card</Button>
-        </form>
-    );
+  return (
+    <form className={styles.cardForm} onSubmit={handleSubmit}>
+      <TextInput value={title} onChange={e => setTitle(e.target.value)}/>
+      <Button>Add card</Button>
+    </form>
+  );
 };
 
 export default CardForm;

@@ -11,9 +11,8 @@ const ColumnForm = props => {
   const [title, setTitle] = useState('');
   const [icon, setIcon] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch({ type: 'ADD_COLUMN', payload: { title, icon } });
     dispatch(addColumn({ title, icon }));
     setTitle('');
     setIcon('');
