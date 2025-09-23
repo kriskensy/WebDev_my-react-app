@@ -2,6 +2,7 @@ import {createStore} from 'redux';
 import initialState from './initialState';
 import { strContains } from '../utils/strContains';
 import { cardMaxId } from '../utils/cardMaxId';
+import { columnMaxId } from '../utils/columnMaxId';
 
 //selectors
 export const getFilteredCards = ({cards, searchString}, columnId) => cards.filter(card => card.columnId === columnId && strContains(card.title, searchString));
@@ -19,7 +20,10 @@ export const updateSearchString = payload => ({type: 'UPDATE_SEARCHSTRING', payl
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_COLUMN':
-      return { ...state, columns: [...state.columns, action.payload]}
+      //TODO po zmianie id w initialState na stringi trzeba tu przerobić funkcje bo karty i kolumny są dodawane z id jako liczba
+      // return { ...state, columns: [...state.columns, action.payload]} 
+      const newColumn = {...action.payload, id: columnMaxId(state) + 1};
+      return { ...state, columns: [...state.columns, newColumn]}
     case 'ADD_CARD':
       const newCard = {...action.payload, id: cardMaxId(state) + 1};
       return { ...state, cards: [...state.cards, newCard]}
