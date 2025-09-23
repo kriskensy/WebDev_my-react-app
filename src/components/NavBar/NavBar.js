@@ -8,9 +8,9 @@ const NavBar = () => {
           <Link to='/' className={styles.icon + ' fa fa-tasks '} aria-label="Home"></Link>
 
           <ul className={styles.links}>
-            <li><NavLink to='/' className={({ isActive}) => isActive ? "active" : ""}>Home</NavLink></li>
-            <li><NavLink to='/about' className={({ isActive}) => isActive ? "active" : ""}>About</NavLink></li>
-            <li><NavLink to='/faovorite' className={({ isActive}) => isActive ? "active" : ""}>Favorite</NavLink></li>
+            <li><NavLink to='/' className={({ isActive}) => isActive ? styles.linkActive : undefined}>Home</NavLink></li>
+            <li><NavLink to='/about' className={({ isActive}) => isActive ? styles.linkActive : undefined}>About</NavLink></li>
+            <li><NavLink to='/faovorite' className={({ isActive}) => isActive ? styles.linkActive : undefined}>Favorite</NavLink></li>
           </ul>
         </div>
     </nav>

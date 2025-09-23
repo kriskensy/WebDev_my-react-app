@@ -1,6 +1,6 @@
 import Container from '../Container/Container';
 import Hero from '../Hero/Hero';
-import List from '../List/List';
+import Lists from '../Lists/Lists';
 import SearchForm from '../SearchForm/SearchForm';
 import './Home.module.scss';
 
@@ -9,7 +9,7 @@ const Home = () => {
     <Container>
       <Hero/>
       <SearchForm/>
-      <List/>
+      <Lists/>
     </Container>
   );
 }
