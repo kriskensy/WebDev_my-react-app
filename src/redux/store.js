@@ -3,6 +3,7 @@ import initialState from './initialState';
 import { strContains } from '../utils/strContains';
 import { cardMaxId } from '../utils/cardMaxId';
 import { columnMaxId } from '../utils/columnMaxId';
+import { listMaxId } from '../utils/listMaxId';
 
 //selectors
 export const getFilteredCards = ({cards, searchString}, columnId) => cards.filter(card => card.columnId === columnId && strContains(card.title, searchString));
@@ -11,14 +12,19 @@ export const getAllCards = (state) => state.cards;
 export const getListById = ({ lists }, listId) => lists.find(list => list.id === listId);
 export const getColumnsByLists = ({columns}, listId) => columns.filter(column => column.listId === listId);
 export const getAllLists = (state) => state.lists;
+export const getGlobalSearchStringValue = (state) => state.searchString;
 
 //action creators
+export const addList = payload => ({type: 'ADD_LIST', payload});
 export const addColumn = payload => ({type: 'ADD_COLUMN', payload});
 export const addCard = payload => ({type: 'ADD_CARD', payload});
 export const updateSearchString = payload => ({type: 'UPDATE_SEARCHSTRING', payload});
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'ADD_LIST':
+      const newList = {...action.payload, id: listMaxId(state) + 1};
+      return {...state, lists: [...state.lists, newList]}
     case 'ADD_COLUMN':
       //TODO po zmianie id w initialState na stringi trzeba tu przerobić funkcje bo karty i kolumny są dodawane z id jako liczba
       // return { ...state, columns: [...state.columns, action.payload]} 
