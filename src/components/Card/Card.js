@@ -12,11 +12,9 @@ const Card = (props) => {
   }
 
   return (
-    <div>
-        <li className={styles.card}>{props.title} 
-          <FavoriteCardButton isFavorite={props.isFavorite} onClick={handleClick}/>
-        </li>
-    </div> 
+    <li className={styles.card}>{props.title} 
+      <FavoriteCardButton isFavorite={props.isFavorite} onClick={handleClick}/>
+    </li>
   );
 };
 
