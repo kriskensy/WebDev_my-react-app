@@ -28,8 +28,6 @@ const reducer = (state, action) => {
       const newList = {...action.payload, id: listMaxId(state) + 1};
       return {...state, lists: [...state.lists, newList]}
     case 'ADD_COLUMN':
-      //TODO po zmianie id w initialState na stringi trzeba tu przerobić funkcje bo karty i kolumny są dodawane z id jako liczba
-      // return { ...state, columns: [...state.columns, action.payload]} 
       const newColumn = {...action.payload, id: columnMaxId(state) + 1};
       return { ...state, columns: [...state.columns, newColumn]}
     case 'ADD_CARD':
