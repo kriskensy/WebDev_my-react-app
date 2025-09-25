@@ -1,0 +1,16 @@
+@import '../../styles/settings.scss';
+
+.trashIcon {
+  background: transparent;
+  border: 0;
+  color: $color-dark;
+  border-radius: $radius;
+  font-size: $base-size * 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
