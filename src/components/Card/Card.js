@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import FavoriteCardButton from '../FavoriteCardButton/FavoriteCardButton';
 import styles from './Card.module.scss';
-import { toggleCardFavorite } from '../../redux/store';
+import { toggleCardFavorite } from '../../redux/cardsRedux';
 
 const Card = (props) => {
 

@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import styles from './ListForm.module.scss';
 import { useState } from 'react';
 import Button from '../Button/Button';
-import { addList } from '../../redux/store';
+import { addList } from '../../redux/listsRedux';
 import TextInput from '../TextInput/TextInput';
 
 const ListForm = () => {
